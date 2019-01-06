@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+
+anubis_start() {
+  if [ -x /usr/local/bin/anubisd -a -x /usr/local/bin/anubisc -a -r /dev/anubis ]; then
+    echo "Starting Anubis..."
+    /usr/local/bin/anubisd -D
+  fi
+}
+
+anubis_stop() {
+  killall anubisd anubisc
+}
+
+anubis_restart() {
+  anubis_stop
+  sleep 2
+  anubis_start
+}
+
+case "$1" in
+'start')
+  anubis_start
+  ;;
+'stop')
+  anubis_stop
+  ;;
+'restart')
+  anubis_restart
+  ;;
+*)
+# Default to start the anubis server 
+  anubis_start
+esac
+

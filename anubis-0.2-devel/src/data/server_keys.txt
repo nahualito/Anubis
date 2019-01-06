@@ -1,0 +1,8 @@
+// This is anubis server key file. 
+// If you want to add a server key all you have to do is run the add_node tool
+// in the tools/ directory.
+
+// 127.0.0.1
+16777343
+3489733036
+3489733036
